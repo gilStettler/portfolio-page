@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-startpage',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   template: `
     <body>
       <section>
@@ -15,7 +16,7 @@ import { Component } from '@angular/core';
               currentWord
             }}</span>
           </div>
-          <button class="buttonLearnMore" routerLink="/start">
+          <button class="buttonLearnMore" routerLink="/homepage">
             Learn More!
           </button>
         </div>
