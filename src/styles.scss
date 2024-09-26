@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f7f5;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    background: radial-gradient(#e8e6e4 1px, #f8f7f5 1px);
+    background-size: 20px 20px;
+}
+
+body {
+    margin: 0;
+}
