@@ -5,12 +5,19 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>
-      homepage works!
-    </p>
+    <div class="homecontent">
+      <div class="leftside">
+        <div class="portrait-wrapper">
+          <img
+            class="portrait"
+            src="/foto_gilstettler.jpg"
+            alt="Porträt_von_Gil_Stettler"
+          />
+        </div>
+      </div>
+      <div class="rightside">testext</div>
+    </div>
   `,
-  styleUrl: './homepage.component.scss'
+  styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent {
-
-}
+export class HomepageComponent {}

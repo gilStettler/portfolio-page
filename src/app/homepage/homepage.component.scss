@@ -1,0 +1,59 @@
+.homecontent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    padding: 2%;
+}
+
+.leftside, .rightside {
+    width: 50%; 
+    height: 100%; 
+}
+
+.leftside {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-right: 2%; 
+    width: 30%;
+}
+
+.rightside {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-right: 2%;
+    width: 70%; 
+}
+
+.portrait-wrapper {
+    position: relative;
+    display: inline-block; 
+}
+  
+.portrait-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -25px;   
+  left: -25px; 
+  width: 100%;
+  height: 100%;
+  background-color: #405b6a; 
+  border-radius: 6%;
+  z-index: -1; 
+}
+
+.portrait {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 6%;
+  box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+  
+
+
