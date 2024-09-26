@@ -1,0 +1,22 @@
+h1 {
+    font-size:20px;
+    color: #1d303a;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5%;
+    perspective: 1000px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.tile:hover {
+    transform: rotateY(180deg); /* Flip the tile on hover */
+}
