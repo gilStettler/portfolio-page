@@ -1,34 +1,37 @@
 .homecontent {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 2%;
-    padding: 2%;
-}
-
-.leftside, .rightside {
-    width: 50%; 
-    height: 100%; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding-right: 220px;
 }
 
 .leftside {
     display: flex;
     align-items: center; 
     justify-content: center; 
-    margin-right: 2%; 
-    width: 30%;
+    width: 25%;
+    margin-bottom: 20px;
 }
 
 .rightside {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px; 
-    align-items: center; 
-    justify-content: left;
-    margin-right: 200px;
+    flex-direction: column;
     width: 70%;
-    animation: slideInLeftTop 2s ease-out; 
+    animation: slideInLeftTop 2s ease-out;
+    text-align: left;
 }
+
+.rightside h1 {
+    margin-bottom: 10px; /* Adjust this to control spacing below the heading */
+}
+
+.rightside p {
+    margin-top: 0; /* Remove any unwanted space above the paragraph */
+    margin-bottom: 20px; /* Add consistent spacing at the bottom if needed */
+}
+
 
 .portrait-wrapper {
     position: relative;
@@ -36,26 +39,51 @@
 }
   
 .portrait-wrapper::before {
-  content: '';
-  position: absolute;
-  top: -25px;   
-  left: -25px; 
-  width: 100%;
-  height: 100%;
-  background-color:#DD761C; 
-  border-radius: 6%;
-  z-index: -1; 
-  animation: slideInLeft 1s ease-out;
+   content: '';
+   position: absolute;
+   top: -25px;
+   left: -25px;
+   width: 100%;
+   height: 100%;
+   background-color: #DD761C;
+   border-radius: 6%;
+   z-index: -1;
+   animation: slideInLeft 1s ease-out;
 }
 
 .portrait {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   object-fit: cover;
   object-position: 50% 30%;
   border-radius: 6%;
   box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
   animation: slideInLeftPortrait 1s ease-out;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .homecontent {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+        padding-right: 0px;
+    }   
+    .leftside, .rightside {
+        width: 100%; /* Make both sections take full width */
+    }   
+    .rightside {
+        text-align: center; /* Center the text for better readability */
+    }   
+
+    .portrait-wrapper{
+        margin-top: 100px;
+    }
+
+
+    .portrait {
+        width: 150px; /* Reduce the size of the image on smaller screens */
+    }
 }
 
 

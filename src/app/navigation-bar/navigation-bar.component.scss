@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease
 }
 
 .navtext ul {
@@ -31,9 +32,33 @@
 }
 
 .navtext li:hover {
-    color: #dd761c; 
     transform: translateX(-10px); 
+    cursor: pointer;
 }
+
+.navtext li::after {
+    content: attr(data-tooltip); /* Use the data attribute to store tooltip text */ 
+    position: absolute;
+    left: -30px;
+    bottom: 20px;
+    transform: translateX(-50%);
+    background-color: #FDE49E;
+    color: #405B6A;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+}
+.navtext li:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Slightly move the tooltip up when hovering */
+}
+
+
 
 .navtext a.active {
     color: #ff6347;
@@ -41,4 +66,36 @@
 
 img {
     width: 50px;
+}
+
+
+@media (max-width: 768px) {
+    .navwrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%; /* Make the navbar take the full width on mobile */
+        height: 50px; /* Change the height to be smaller */
+        flex-direction: row; /* Layout the nav items horizontally */
+        justify-content: center;
+        align-items: center;
+        box-shadow: none;
+    }
+
+    .navtext ul {
+        display: flex; /* Display the items horizontally */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navtext li {
+        margin: 0; /* Remove the margin to fit everything neatly */
+    }
+    
+    img {
+        width: 30px; /* Smaller icons on mobile */
+    }
 }

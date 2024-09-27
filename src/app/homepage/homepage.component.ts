@@ -21,7 +21,6 @@ import { QuoteService } from '../quote.service';
       </div>
       <div class="rightside">
         <h1>About Me</h1>
-        <br />
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,

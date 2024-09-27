@@ -9,12 +9,12 @@ import { Router, RouterModule } from '@angular/router';
     <nav class="navwrapper">
       <div class="navtext">
         <ul>
-          <li><img src="home.svg" alt="home"></li>
-          <li><img src="experience.svg" alt="experiences"></li>
-          <li><img src="education.svg" alt="education"></li>
-          <li><img src="skills.svg" alt="skills"></li>
-          <li><img src="hobby.svg" alt="hobbies"></li>
-          <li><img src="random.svg" alt="random"></li>
+          <li data-tooltip="Home"><img src="home.svg" alt="home"></li>
+          <li data-tooltip="Experiences"><img src="experience.svg" alt="experiences"></li>
+          <li data-tooltip="Education"><img src="education.svg" alt="education"></li>
+          <li data-tooltip="Skills"><img src="skills.svg" alt="skills"></li>
+          <li data-tooltip="Hobbies"><img src="hobby.svg" alt="hobbies"></li>
+          <li data-tooltip="Who Knows?"><img src="random.svg" alt="random"></li>
         </ul>
       </div>
     <nav>
