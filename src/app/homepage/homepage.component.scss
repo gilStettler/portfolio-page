@@ -24,9 +24,10 @@
     flex-wrap: wrap;
     gap: 10px; 
     align-items: center; 
-    justify-content: center;
-    margin-right: 2%;
-    width: 70%; 
+    justify-content: left;
+    margin-right: 200px;
+    width: 70%;
+    animation: slideInLeftTop 2s ease-out; 
 }
 
 .portrait-wrapper {
@@ -41,9 +42,10 @@
   left: -25px; 
   width: 100%;
   height: 100%;
-  background-color: #405b6a; 
+  background-color:#DD761C; 
   border-radius: 6%;
   z-index: -1; 
+  animation: slideInLeft 1s ease-out;
 }
 
 .portrait {
@@ -53,9 +55,42 @@
   object-position: 50% 30%;
   border-radius: 6%;
   box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
-
+  animation: slideInLeftPortrait 1s ease-out;
 }
 
+
+@keyframes slideInLeft { 
+    from { 
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeftPortrait { 
+    from { 
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeftTop { 
+    from { 
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
   
 
 
