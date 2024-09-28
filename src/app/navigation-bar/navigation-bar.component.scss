@@ -4,12 +4,13 @@
     top: 0;
     bottom: 0;
     background-color: #6dc5d1;
-    width: 200px; 
+    width: 150px; 
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: -4px 0 5px rgba(0, 0, 0, 0.2); 
     transition: all 0.3s ease
 }
 
@@ -94,7 +95,7 @@ img {
     .navtext li {
         margin: 0; /* Remove the margin to fit everything neatly */
     }
-    
+
     img {
         width: 30px; /* Smaller icons on mobile */
     }

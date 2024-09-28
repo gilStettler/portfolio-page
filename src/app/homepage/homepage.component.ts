@@ -3,12 +3,19 @@ import { CommonModule } from '@angular/common';
 import { TileComponent } from '../tile/tile.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { QuoteService } from '../quote.service';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [TileComponent, CommonModule, NavigationBarComponent],
+  imports: [
+    TileComponent,
+    CommonModule,
+    NavigationBarComponent,
+    FooterComponent,
+  ],
   template: `
+  <div class="container">
     <div class="homecontent">
       <div class="leftside">
         <div class="portrait-wrapper">
@@ -22,15 +29,25 @@ import { QuoteService } from '../quote.service';
       <div class="rightside">
         <h1>About Me</h1>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
+          My name is Gil Stettler. I am 24 years old (born 23 June 2000). I am
+          currently studying business informatics while working part-time as a
+          deputy application manager at the Swiss Accreditation Service (SAS).
+          <br /><br />
+          At the SAS, I am responsible for ensuring that our application
+          continues to meet the needs of the users and the conditions. However,
+          prior to this job, I was able to gain a wide range of other work
+          experience. At the State Secretariat for Migration (SEM) and the Swiss
+          Accreditation Service, I was able to gain a lot of experience as an
+          administrator. I am able to adapt to different teams and situations
+          and always use my skills to add value. My ability to learn quickly and
+          my qualitative way of working have always been of great help to me.
+          <br /><br />
+          I am interested in software projects that support organisations in
+          their digital transformation. Software must always enable the user to
+          create value and have great usability. I would like to use my skills
+          in such projects. Be it as a requirements engineer, project manager,
+          UI/UX designer, product owner or scrum master. Want to know more about
+          me? Then I invite you to have a look at my portfolio!
         </p>
         <!--<app-tile label="Experience" color="#6dc5d1"></app-tile>
         <app-tile label="Education" color="#fde49E"></app-tile>
@@ -39,8 +56,10 @@ import { QuoteService } from '../quote.service';
         <app-tile label="Random" color="#6dc5d1"></app-tile>-->
       </div>
       <!--<p>{{ quote.q }}</p>-->
-      <app-navigation-bar></app-navigation-bar>
     </div>
+    <app-navigation-bar></app-navigation-bar>
+    <app-footer></app-footer>
+  </div>
   `,
   styleUrl: './homepage.component.scss',
 })

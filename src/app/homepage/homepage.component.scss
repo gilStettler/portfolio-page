@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    flex: 1;
     min-height: 100vh;
     padding-right: 220px;
 }
@@ -53,7 +54,7 @@
 
 .portrait {
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
   height: auto;
   object-fit: cover;
   object-position: 50% 30%;
@@ -71,7 +72,7 @@
     }   
     .leftside, .rightside {
         width: 100%; /* Make both sections take full width */
-    }   
+        }   
     .rightside {
         text-align: center; /* Center the text for better readability */
     }   
@@ -79,7 +80,6 @@
     .portrait-wrapper{
         margin-top: 100px;
     }
-
 
     .portrait {
         width: 150px; /* Reduce the size of the image on smaller screens */
