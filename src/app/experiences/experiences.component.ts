@@ -7,6 +7,9 @@ import { NavigationBarComponent } from '../navigation-bar/navigation-bar.compone
   standalone: true,
   imports: [FooterComponent, NavigationBarComponent],
   template: `
+    <div class="container">
+      sdfsdf
+    </div>
     <app-navigation-bar></app-navigation-bar>
     <app-footer></app-footer>
   `,

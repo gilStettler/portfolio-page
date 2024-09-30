@@ -57,9 +57,9 @@ import { FooterComponent } from '../footer/footer.component';
       </div>
       <!--<p>{{ quote.q }}</p>-->
     </div>
-    <app-navigation-bar></app-navigation-bar>
-    <app-footer></app-footer>
   </div>
+  <app-navigation-bar></app-navigation-bar>
+  <app-footer></app-footer>
   `,
   styleUrl: './homepage.component.scss',
 })
