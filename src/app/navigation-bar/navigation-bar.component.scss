@@ -1,102 +1,96 @@
 .navwrapper {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     background-color: #6dc5d1;
-    width: 150px; 
-    height: 100%;
+    width: 100%; 
+    height: 60px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;;
+    padding: 0 20px;
     box-shadow: -4px 0 5px rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 .navtext ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
 .navtext li {
-    margin: 15px 0; 
+    margin: 15px 0;
     font-size: 18px;
     color: #405b6a;
     display: block;
     padding: 10px;
     transition: all 0.3s ease;
     position: relative;
+    margin: 0 15px;
 }
+
 
 .navtext li:hover {
     transform: translateX(-10px); 
     cursor: pointer;
-}
-
-.navtext li::after {
-    content: attr(data-tooltip); /* Use the data attribute to store tooltip text */ 
-    position: absolute;
-    left: -30px;
-    bottom: 20px;
-    transform: translateX(-50%);
-    background-color: #FDE49E;
-    color: #405B6A;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-}
-.navtext li:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-5px); /* Slightly move the tooltip up when hovering */
-}
-
-
-
-.navtext a.active {
-    color: #ff6347;
-}
-
-img {
-    width: 50px;
+    text-decoration: underline;
 }
 
 
 @media (max-width: 768px) {
     .navwrapper {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%; /* Make the navbar take the full width on mobile */
-        height: 50px; /* Change the height to be smaller */
-        flex-direction: row; /* Layout the nav items horizontally */
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
         box-shadow: none;
     }
 
-    .navtext ul {
-        display: flex; /* Display the items horizontally */
-        justify-content: center;
-        align-items: center;
+    .hamburger {
+        display: block; 
+        margin-left: 25px;
+    }
+
+    .navtext {
+        display: none; /* Hide the nav items */
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background-color: #6dc5d1;
         width: 100%;
-        padding: 0;
+        height: 100%;
+        overflow-y: auto;
+        text-align: center;
+        flex-direction: column;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .navtext.open {
+        display: flex; /* Show the nav items when menu is open */
+    }
+
+    .navtext ul {
+        flex-direction: column; /* Stack menu items vertically */
         margin: 0;
+        padding: 0;
     }
 
-    .navtext li {
-        margin: 0; /* Remove the margin to fit everything neatly */
-    }
-
-    img {
-        width: 30px; /* Smaller icons on mobile */
+    .navtext {
+        scroll-behavior: smooth;
     }
 }

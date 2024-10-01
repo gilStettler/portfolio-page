@@ -1,26 +1,33 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   template: `
     <nav class="navwrapper">
-      <div class="navtext">
+      <button class="hamburger" (click)="toggleMenu()">&#9776;</button>
+      <div class="navtext" [ngClass]="{ open: menuOpen }">
         <ul>
-          <li data-tooltip="Home" routerLink="/homepage"><img src="home.svg" alt="home"></li>
-          <li data-tooltip="Experiences" routerLink="/experiences"><img src="experience.svg" alt="experiences"></li>
-          <li data-tooltip="Education"><img src="education.svg" alt="education"></li>
-          <li data-tooltip="Skills"><img src="skills.svg" alt="skills"></li>
-          <li data-tooltip="Hobbies"><img src="hobby.svg" alt="hobbies"></li>
-          <li data-tooltip="Who Knows?"><img src="random.svg" alt="random"></li>
+          <li routerLink="/homepage">Home</li>
+          <li routerLink="/experiences">Experiences</li>
+          <li>Education</li>
+          <li>Skills</li>
+          <li>Hobbies</li>
+          <li>Random</li>
         </ul>
       </div>
-    <nav>
+      <nav></nav>
+    </nav>
   `,
-  styleUrl: './navigation-bar.component.scss'
+  styleUrl: './navigation-bar.component.scss',
 })
 export class NavigationBarComponent {
+  menuOpen = false;
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }
