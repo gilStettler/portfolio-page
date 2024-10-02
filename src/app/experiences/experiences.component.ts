@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
         <div *ngFor="let item of timelineData" class="timeline-container">
           <img src="{{item.imgSrc}}" alt="{{item.imgAlt}}">
           <div class="text-box">
-            <h3>{{item.company}}</h3>
+            <h3>{{item.job}}</h3>
             <small>{{item.period}}</small>
             <p>
               {{item.description}}
@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
 export class ExperiencesComponent {
   timelineData = [
     {
-      company: 'Swiss Accreditation Service SAS',
+      job: 'Deputy Application Manager',
       period: 'January 2023 - today',
       description:
         'Deputy application manager. Elicitation and analysis of requirements. Coordination with developers. User support.',
@@ -41,7 +41,7 @@ export class ExperiencesComponent {
       isVisible: false,
     },
     {
-      company: 'Swiss Accreditation Service SAS',
+      job: 'Specialised Collaborator',
       period: 'August 2020 - December 2023',
       description:
         'Clerk at the SAS. Processing of accreditation dossiers. Accounts receivable invoices. Responsible for general enquiries.',
@@ -50,7 +50,7 @@ export class ExperiencesComponent {
       isVisible: false,
     },
     {
-      company: 'State Secretary for Migration SEM',
+      job: 'Intern at the Civil Law Department',
       period: 'August 2019 - July 2020',
       description: 'Internship in the secretariat of the Civil Law Department.',
       imgSrc: 'blop3.svg',

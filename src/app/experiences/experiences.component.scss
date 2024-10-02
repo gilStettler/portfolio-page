@@ -29,7 +29,7 @@ h2::after{
 
 .timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
   }
 
@@ -60,6 +60,33 @@ h2::after{
     position: relative;
     border-radius: 6px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@property --angle{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.text-box::after, .text-box::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    background-image: conic-gradient(from var(--angle), transparent 70%, #6dc5d1,#3db2c2);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 3px;
+    border-radius: 6px;
+    animation: spin 3s linear infinite;
+}
+
+
+.text-box::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
 
 .timeline-container:nth-child(odd){
@@ -110,6 +137,16 @@ h2::after{
     }   
 }
 
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+    
+}
+
 .timeline-container:nth-child(1){
     animation-delay: 0s;
 }
@@ -122,4 +159,38 @@ h2::after{
     animation-delay: 4s;
 }
 
-
+@media (max-width: 768px){
+    .timeline{
+        padding-left: 40px;
+    }
+    .timeline::after {
+        left: 20px;
+        margin-left: 0;
+        height: 100%;
+    }
+    .timeline-container {
+        width: 80%;
+        padding: 10px 20px;
+        margin-bottom: 30px; /* Add space between timeline entries */
+        left: 0; /* Align to the left */
+        position: relative;
+        font-size: 16px;
+    }
+    .timeline-container:nth-child(odd),
+    .timeline-container:nth-child(even) {
+      left: 0;
+    }
+    .timeline-container img {
+        position: absolute;
+        top: 30px;
+        width: 40px; 
+    }
+    .timeline-container img:nth-child(odd){
+        transform: translateX(-85%);
+        left: 0;
+    }
+    .timeline-container img:nth-child(even){
+        left: 0;
+    }
+}
+  
