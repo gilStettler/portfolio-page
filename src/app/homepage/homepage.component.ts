@@ -4,6 +4,7 @@ import { TileComponent } from '../tile/tile.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { QuoteService } from '../quote.service';
 import { FooterComponent } from '../footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -13,58 +14,42 @@ import { FooterComponent } from '../footer/footer.component';
     CommonModule,
     NavigationBarComponent,
     FooterComponent,
+    ReactiveFormsModule,
   ],
   template: `
-  <div class="container">
-    <div class="homecontent">
-      <div class="leftside">
-        <div class="portrait-wrapper">
-          <img
-            class="portrait"
-            src="/foto_gilstettler.jpg"
-            alt="Porträt_von_Gil_Stettler"
-          />
+    <div class="homecontainer">
+      <div class="left-side">
+        <div class="card">
+          <div class="card-picture">
+            <img src="foto_gilstettler.jpg" alt="Porträt von Gil Stettler" />
+          </div>
+          <h2>Gil Stettler</h2>
+          <h3>Business IT Student & Application Manager</h3>
         </div>
       </div>
-      <div class="rightside">
-        <h1>About Me</h1>
-        <p>
-          My name is <span class="color-transition">Gil Stettler</span>. I am 24 years old (born 23 June 2000). I am
-          currently studying <span class="color-transition">business informatics</span> while working part-time as a
-          <span class="color-transition">deputy application manager</span> at the Swiss Accreditation Service (SAS).
-          <br /><br />
-          At the SAS, I am responsible for ensuring that our application
-          continues to meet the needs of the users and the conditions. However,
-          prior to this job, I was able to gain a wide range of other work
-          experience. At the State Secretariat for Migration (SEM) and the Swiss
-          Accreditation Service, I was able to gain a lot of experience as an
-          administrator. I am able to <span class="color-transition">adapt to different teams</span> and situations
-          and always use my skills to add value. My ability to learn quickly and
-          my qualitative way of working have always been of great help to me.
-          <br /><br />
-          I am interested in software projects that support organisations in
-          their <span class="color-transition">digital transformation</span>. Software must always enable the user to
-          create value and have great usability. I would like to use my skills
-          in such projects. Be it as a requirements engineer, project manager,
-          UI/UX designer, product owner or scrum master. Want to know more about
-          me? Then I invite you to have a look at my portfolio!
-        </p>
-        <!--<app-tile label="Experience" color="#6dc5d1"></app-tile>
-        <app-tile label="Education" color="#fde49E"></app-tile>
-        <app-tile label="Skills" color="#DD761C"></app-tile>
-        <app-tile label="Hobbies" color="#DD761C"></app-tile>
-        <app-tile label="Random" color="#6dc5d1"></app-tile>-->
+      <div class="right-side">
+        <h1><span>HELLO</span> there!</h1>
+        <div class="about-paragraph">
+          <p>
+            I, Gil Stettler, was born on 23 June 2000. The digital
+            transformation offers us countless opportunities to better connect
+            the world and create an inclusive, modern and sustainable tomorrow.
+            I want to use my skills to support this change in a qualitative way.
+            That's why I'm studying business informatics alongside my job as
+            deputy application manager. I hope to use my skills to drive forward
+            exciting and innovative projects.
+          </p>
+        </div>
       </div>
-      <!--<p>{{ quote.q }}</p>-->
     </div>
-  </div>
-  <app-navigation-bar></app-navigation-bar>
-  <app-footer></app-footer>
+
+    <app-navigation-bar></app-navigation-bar>
+    <app-footer></app-footer>
   `,
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent implements OnInit {
-  quote: { q: string; a: string; h: string } = { q: '', a: '', h: '' }; // Initialize with an empty quote
+  quote: { q: string; a: string } = { q: '', a: '' }; // Initialize with an empty quote
 
   constructor(private quoteService: QuoteService) {}
 
@@ -74,7 +59,7 @@ export class HomepageComponent implements OnInit {
 
   fetchQuote() {
     this.quoteService.getRandomQuote().subscribe(
-      (response: { q: string; a: string; h: string }[]) => {
+      (response: { q: string; a: string }[]) => {
         this.quote = response[0];
       },
       (error) => {

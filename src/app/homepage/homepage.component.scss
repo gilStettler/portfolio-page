@@ -1,186 +1,140 @@
-.homecontent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex: 1;
+.homecontainer {
     min-height: 100vh;
-    padding-right: 220px;
-    padding-left: 60px;
-    padding-top: 30px;
-}
-
-.leftside {
+    margin: 80px 20px 20px 20px;
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    width: 25%;
-    margin-bottom: 20px;
+    justify-content: space-between;
 }
 
-.rightside {
+.left-side{
+    background-color: #FDE49E;
+    border-radius: 6px;
+    height: 100vh;
+    width: 50%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    height: 70%;
+    width: 60%;
+    border-radius: 6px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     flex-direction: column;
-    width: 70%;
-    animation: slideInLeftTop 2s ease-out;
-    text-align: left;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff6dd
 }
 
-.rightside h1 {
-    margin-bottom: 10px; /* Adjust this to control spacing below the heading */
+.card:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
-.rightside p {
-    margin-top: 0; /* Remove any unwanted space above the paragraph */
-    margin-bottom: 20px; /* Add consistent spacing at the bottom if needed */
+.card .card-picture{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: rgba(100, 100, 111, 0.2);
 }
 
+.card .card-picture img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 60% 30%;
 
-.portrait-wrapper {
-    position: relative;
-    display: inline-block; 
-}
-  
-.portrait-wrapper::before {
-   content: '';
-   position: absolute;
-   top: -25px;
-   left: -25px;
-   width: 100%;
-   height: 100%;
-   background-color: #DD761C;
-   border-radius: 6%;
-   z-index: -1;
-   animation: slideInLeft 1s ease-out;
 }
 
-.portrait {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  object-position: 50% 30%;
-  border-radius: 6%;
-  box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
-  animation: slideInLeftPortrait 1s ease-out;
+.card h2{
+    font-size: 35px;
 }
 
-.color-transition {
-    animation: colorChange 5s infinite;
-    font-weight: bold;
+.card h3{
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 400;
 }
 
-@keyframes colorChange {
-    0% {
-      color: #ff7f50; /* Coral */
-    }
-    25% {
-      color: #ffa500; /* Orange */
-    }
-    50% {
-      color: #1e90ff; /* DodgerBlue */
-    }
-    75% {
-      color: #00bfff; /* DeepSkyBlue */
-    }
-    100% {
-      color: #ff7f50; /* Coral */
-    }
+.right-side{
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 50px;
 }
 
-.color-transition:nth-child(2) {
-    animation-delay: 1s;
+.right-side p{
+    text-align: center;
 }
 
-.color-transition:nth-child(3) {
-    animation-delay: 2s;
+.right-side h1{
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
-.color-transition:nth-child(4) {
-    animation-delay: 3s;
-}
-
-.color-transition:nth-child(5) {
-    animation-delay: 4s;
+.right-side h1 span{
+    animation: color-change 5s infinite;
 }
 
 
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .homecontent {
-        flex-direction: column; /* Stack content vertically */
-        align-items: center;
-        padding-right: 0px;
-    }   
-    .leftside, .rightside {
-        width: 100%; /* Make both sections take full width */
-        font-size: 16px;
-        }   
-    .rightside {
-        text-align: center; /* Center the text for better readability */
-    }   
-
-    .portrait-wrapper{
-        margin-top: 100px;
-    }
-
-    .portrait {
-        width: 150px; /* Reduce the size of the image on smaller screens */
-    }
+@keyframes color-change {
+    0% { color: #DD761C; }
+    33% { color: #6DC5D1; }
+    66% { color: #FDE49E; }
+    100% { color: #DD761C;}
 }
 
-
-@keyframes slideInLeft { 
-    from { 
-        transform: translateX(-50%);
-        opacity: 0;
+@media (max-width: 768px){
+    .homecontainer{
+        flex-direction: column;
+        margin: 20px;
     }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+
+    .left-side, .right-side{
+        width: 100%;
+        height: 50vh;
+    }
+
+    .right-side{
+        padding-left: 0;
+
+    }
+
+    .right-side p{
+        font-size: 20px;
+    }
+
+    .card{
+        width: 80%;
+    }
+
+    .card h2{
+        font-size: 25px;
+    }
+
+    .card h3{
+        font-size: 20px;
+    }
+
+    .card .card-picture{
+        width: 100px;
+        height: 100px;
+    }
+
+    .card .card-picture img{
+        width: 100px;
+        height: 100px;
     }
 }
-
-@keyframes slideInLeftPortrait { 
-    from { 
-        transform: translateX(-50%);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInLeftTop { 
-    from { 
-        transform: translateY(-50%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes colorChange {
-    0% {
-      color: #ff7f50; /* Coral */
-    }
-    25% {
-      color: #ffa500; /* Orange */
-    }
-    50% {
-      color: #1e90ff; /* DodgerBlue */
-    }
-    75% {
-      color: #00bfff; /* DeepSkyBlue */
-    }
-    100% {
-      color: #ff7f50; /* Coral */
-    }
-}
-  
 
 

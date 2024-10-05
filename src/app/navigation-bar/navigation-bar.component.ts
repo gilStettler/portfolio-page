@@ -13,7 +13,7 @@ import { Router, RouterModule } from '@angular/router';
         <ul>
           <li routerLink="/homepage">Home</li>
           <li routerLink="/experiences">Experiences</li>
-          <li>Education</li>
+          <li routerLink="/education">Education</li>
           <li>Skills</li>
           <li>Hobbies</li>
           <li>Random</li>

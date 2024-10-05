@@ -159,6 +159,9 @@ h2::after{
     animation-delay: 4s;
 }
 
+.timeline-container:nth-child(4){
+    animation-delay: 6s;
+}
 
 @media (max-width: 768px){
     .timeline{
@@ -194,5 +197,4 @@ h2::after{
         left: 0;
     }
 }
-
   

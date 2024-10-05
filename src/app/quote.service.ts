@@ -15,6 +15,6 @@ export class QuoteService {
   constructor(private http: HttpClient) {}
 
   getRandomQuote(): Observable<any> {
-    return this.http.get<any>('https://zenquotes.io/api/random');
+    return this.http.get<any>('https://zenquotes.io/api/random/');
   }
 }
