@@ -14,12 +14,11 @@ import { Router, RouterModule } from '@angular/router';
           <li routerLink="/homepage">Home</li>
           <li routerLink="/experiences">Experiences</li>
           <li routerLink="/education">Education</li>
-          <li>Skills</li>
+          <li routerLink="/skills">Skills</li>
           <li>Hobbies</li>
           <li>Random</li>
         </ul>
       </div>
-      <nav></nav>
     </nav>
   `,
   styleUrl: './navigation-bar.component.scss',
