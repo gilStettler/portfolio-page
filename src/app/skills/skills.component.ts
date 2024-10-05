@@ -63,6 +63,24 @@ export class SkillsComponent {
       ],
     },
     {
+      name: 'Angular',
+      level: null,
+      keywords: [
+        'angular',
+        'typescript',
+        'framework',
+        'frontend',
+        'web development',
+        'webentwicklung',
+        'html',
+        'css',
+        'programming',
+        'programmierung',
+        'code',
+        'coding',
+      ],
+    },
+    {
       name: 'Business Process Model & Notation',
       level: null,
       keywords: [
