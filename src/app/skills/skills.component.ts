@@ -3,6 +3,7 @@ import { NavigationBarComponent } from '../navigation-bar/navigation-bar.compone
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ParseErrorLevel } from '@angular/compiler';
 
 @Component({
   selector: 'app-skills',

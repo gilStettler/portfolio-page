@@ -49,7 +49,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent implements OnInit {
-  quote: { q: string; a: string } = { q: '', a: '' }; // Initialize with an empty quote
+  quote: { q: string; a: string } = { q: '', a: '' }; 
 
   constructor(private quoteService: QuoteService) {}
 
@@ -61,6 +61,7 @@ export class HomepageComponent implements OnInit {
     this.quoteService.getRandomQuote().subscribe(
       (response: { q: string; a: string }[]) => {
         this.quote = response[0];
+        console.log('Fetched quote:', response);
       },
       (error) => {
         console.error('Error fetching quote:', error);

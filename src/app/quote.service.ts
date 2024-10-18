@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface Quote {
-  q: string;
-  a: string;
-  h: string;
+  id: number;
+  quote: string;
+  author: string;
 }
 
 @Injectable({
@@ -15,6 +15,6 @@ export class QuoteService {
   constructor(private http: HttpClient) {}
 
   getRandomQuote(): Observable<any> {
-    return this.http.get<any>('https://zenquotes.io/api/random/');
+    return this.http.get<any>('https://dummyjson.com/quotes/random');
   }
 }

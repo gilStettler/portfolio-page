@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { QuoteService } from '../quote.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-startpage',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   template: `
     <body>
       <section>
@@ -19,13 +21,17 @@ import { RouterModule } from '@angular/router';
           <button class="buttonLearnMore" routerLink="/homepage">
             Learn More!
           </button>
+          <div *ngIf="quote && quote.quote" class="quote-section">
+            <p class="quote-text">"{{ quote.quote }}"</p>
+            <p class="quote-author">- {{ quote.author }}</p>
+          </div>
         </div>
       </section>
     </body>
   `,
   styleUrl: './startpage.component.scss',
 })
-export class StartpageComponent {
+export class StartpageComponent implements OnInit {
   title = 'start';
 
   // Array für "Current Word"
@@ -44,6 +50,7 @@ export class StartpageComponent {
   // Start der Funktion bei öffnen der Seite
   ngOnInit(): void {
     this.startRotatingsWords();
+    this.fetchQuote();
   }
   // Funktion, wodurch das "Current Word" alle 3 Sekunden neu gesetzt wird.
   startRotatingsWords(): void {
@@ -60,5 +67,25 @@ export class StartpageComponent {
       this.currentWord = this.words[this.wordIndex];
       this.isFading = false;
     }, 500);
+  }
+
+  quote: { id: number; quote: string; author: string } = {
+    id: 0,
+    quote: '',
+    author: '',
+  };
+
+  constructor(private quoteService: QuoteService) {}
+
+  fetchQuote() {
+    this.quoteService.getRandomQuote().subscribe(
+      (response: { id: number; quote: string; author: string }) => {
+        this.quote = response;
+        console.log('Fetched quote:', response);
+      },
+      (error) => {
+        console.error('Error fetching quote:', error);
+      }
+    );
   }
 }
