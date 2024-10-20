@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
+import { HobbiesComponent } from './hobbies/hobbies.component';
 
 export const routes: Routes = [
 
@@ -31,6 +32,11 @@ export const routes: Routes = [
         path: 'skills',
         component: SkillsComponent,
         title: 'Skills'
+    },
+    {
+        path: 'hobbies',
+        component: HobbiesComponent,
+        title: 'Hobbies'
     }
 ];
 
