@@ -35,7 +35,7 @@ export class HobbiesComponent implements OnInit {
   constructor(private catsService: CatsService) {}
 
   fetchCat() {
-    this.catsService.getCat().subscribe(
+    this.catsService.getCats().subscribe(
       (response: Array<{id: string, url: string, width: number, height: number}>) => {
         this.cat = response[0];
         console.log('Fetched cat:', response);
