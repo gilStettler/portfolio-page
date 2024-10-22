@@ -1,4 +1,54 @@
 .container {
-    height: 100vh;
-    padding-top: 100px;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    color: rgba(0,0,0,.87);
+}
+
+.hobby {
+    display: flex;
+
+}
+
+.hobby-color1, .hobby-color2{
+    width: 50%;
+    min-height: 25vh;
+    height: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hobby-color1 p, .hobby-color2 p{ 
+    padding: 4%;}
+
+.hobby-color1 a, .hobby-color2 a{ 
+    text-decoration: underline;
+    color: #405b6a;}
+
+.hobby-color1 button, .hobby-color2 button{ 
+    padding: 3%; 
+    border-radius: 10px;
+    font-size: large;}
+
+.hobby-color1 button:hover, .hobby-color2 button:hover{
+    background-color: #6dc5d1;
+    color: white;
+    cursor: pointer;
+}
+.hobby-color1 img, .hobby-color2 img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.hobby-color2{
+    background-color: #FDE49E;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }

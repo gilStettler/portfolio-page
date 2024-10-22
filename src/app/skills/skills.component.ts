@@ -28,6 +28,7 @@ import { ParseErrorLevel } from '@angular/compiler';
         <div *ngFor="let item of filteredSkills()" class="skill">
           <h2>{{ item.name }}</h2>
           <p>{{ item.level }}</p>
+          <a href="{{ item.link }}">Learn more</a>
         </div>
       </div>
     </div>
@@ -50,6 +51,7 @@ export class SkillsComponent {
         'deutsch',
         'languages',
       ],
+      link: 'https://en.wikipedia.org/wiki/German_language',
     },
     {
       name: 'Requirements Engineering',
@@ -62,6 +64,7 @@ export class SkillsComponent {
         'requirements',
         'certified',
       ],
+      link: 'https://saq.ch/de/personenzertifizierung/informatik/requirements_engineering/',
     },
     {
       name: 'Angular',
@@ -80,6 +83,7 @@ export class SkillsComponent {
         'code',
         'coding',
       ],
+      link: 'https://angular.dev/',
     },
     {
       name: 'Business Process Model & Notation',
@@ -91,16 +95,19 @@ export class SkillsComponent {
         'process',
         'prozess',
       ],
+      link: 'https://www.omg.org/bpmn/',
     },
     {
       name: 'Unified Modeling Language UML',
       level: null,
       keywords: ['uml', 'unified modeling language', 'modeling'],
+      link: 'https://www.uml.org/',
     },
     {
       name: 'JIRA',
       level: null,
       keywords: ['jira', 'user stories', 'tickets', 'atlassian'],
+      link: 'https://www.atlassian.com/software/jira',
     },
     {
       name: 'HERMES',
@@ -112,6 +119,7 @@ export class SkillsComponent {
         'projektmanagement',
         'project',
       ],
+      link: 'https://www.hermes.admin.ch/',
     },
     {
       name: 'French',
@@ -125,11 +133,13 @@ export class SkillsComponent {
         'languages',
         'certified',
       ],
+      link: 'https://en.wikipedia.org/wiki/French_language',
     },
     {
       name: 'Python',
       level: null,
       keywords: ['python', 'programmierung', 'code', 'coding'],
+      link: 'https://www.python.org/',
     },
     {
       name: 'MS-Office',
@@ -142,11 +152,13 @@ export class SkillsComponent {
         'excel',
         'powerpoint',
       ],
+      link: 'https://www.microsoft.com/en-us/microsoft-365',
     },
     {
       name: 'R',
       level: null,
       keywords: ['r', 'data science', 'data analytics', 'analytics', 'data'],
+      link: 'https://www.r-project.org/',
     },
     {
       name: 'English',
@@ -160,11 +172,13 @@ export class SkillsComponent {
         'languages',
         'certified',
       ],
+      link: 'https://en.wikipedia.org/wiki/English_language',
     },
     {
       name: 'SQLite',
       level: null,
       keywords: ['sqlite', 'sql', 'database', 'data management', 'data'],
+      link: 'https://www.sqlite.org/index.html',
     },
   ];
 
