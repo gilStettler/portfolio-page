@@ -16,7 +16,6 @@ import { Router, RouterModule } from '@angular/router';
           <li routerLink="/education">Education</li>
           <li routerLink="/skills">Skills</li>
           <li routerLink="/hobbies">Hobbies</li>
-          <li>Random</li>
         </ul>
       </div>
     </nav>

@@ -21,6 +21,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Cabin", sans-serif;
 }
 
 .searchbar {
@@ -34,6 +35,7 @@
     font-size: 16px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    font-family: "Cabin", sans-serif;
 }
 .searchbar:hover {
     transform: scale(1.05);
@@ -67,6 +69,7 @@
     border: 3px solid transparent;
     background-clip: padding-box;
     overflow: hidden;
+    font-family: "Cabin", sans-serif;
 }
 
 .skill:hover {
@@ -77,10 +80,11 @@
 }
 
 .skill p {
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 800;
     color: #333;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: "Cabin", sans-serif;
 }
 
 .skill::before, .skill::after {
@@ -109,10 +113,44 @@
 a {
     text-decoration: none;
     color: #333;
+    font-family: "Cabin", sans-serif;
 }
 
 a:hover {
     color: #6dc5d1;
     text-decoration: underline;
 
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill {
+        width: 200px;
+        height: 200px;
+        margin-left: -15px;
+    }
+
+    .search-container, .search-bar{
+        font-size: 15px;
+    }
+
+    .skill p {
+        font-size: 16px;
+    }
+
+    .skill h2 {
+        font-size: 25px;
+    }
+
+    .skill a {
+        font-size: 16px
+    }
+
+    .search-container {
+        margin-left: -25px;
+    }
 }

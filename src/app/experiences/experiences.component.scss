@@ -110,11 +110,18 @@ h2::after{
 
 .text-box h3{
     font-weight: 600;
+    font-family: "Cabin", sans-serif;
 }
 
 .text-box small{
     display: inline-block;
     margin-bottom: 15px;
+    font-family: "Cabin", sans-serif;
+    font-style: italic;
+}
+
+h2, p {
+    font-family: "Cabin", sans-serif;
 }
 
 @keyframes moveline {
