@@ -77,7 +77,6 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 @media (max-width: 768px) {
     .hobby-color1, .hobby-color2, .hobby-color3, .hobby-color4, .hobby-color5, .hobby-color6, .hobby-color7, .hobby-color8{
         width: 100%;
@@ -96,5 +95,13 @@
     .hobby-color2, .hobby-color4, .hobby-color6, .hobby-color8{
         background-color: #FDE49E;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hobby-color1 h2, .hobby-color2 h2, .hobby-color3 h2, .hobby-color4 h2, .hobby-color5 h2, .hobby-color6 h2, .hobby-color7 h2, .hobby-color8 h2 {
+        font-size: 30px;
+    }
+
+    .hobby-color1 p, .hobby-color2 p, .hobby-color3 p, .hobby-color4 p, .hobby-color5 p, .hobby-color6 p, .hobby-color7 p, .hobby-color8 p{
+        font-size: 18px;
     }
 }

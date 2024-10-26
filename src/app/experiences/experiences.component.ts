@@ -44,7 +44,7 @@ export class ExperiencesComponent {
       job: 'Specialised Collaborator',
       period: 'August 2020 - December 2023',
       description:
-        'At the Swiss Accreditation Service SAS, I was responsible for processing accreditation dossiers, issuing customer invoices and for the general e-mail inbox.',
+        'At the Swiss Accreditation Service SAS, I was responsible for processing accreditation dossiers, issuing customer invoices and for all general e-mail inquiries.',
       imgSrc: 'blop2.svg',
       imgAlt: 'Aufzählungszeichen',
       isVisible: false,

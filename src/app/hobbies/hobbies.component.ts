@@ -1,4 +1,11 @@
-import { Component, OnInit, HostListener, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  ViewChild,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { CatsService } from '../cats.service';
@@ -16,19 +23,25 @@ import { CommonModule } from '@angular/common';
           <h2>Playing Drums</h2>
           <p>
             I have been playing all kinds of percussion instruments since 2010,
-            but my passion is the drums. I play in the Musikgesellschaft
+            but my passion are the drums. I play in the Musikgesellschaft
             Schüpbach, but I also help out in other clubs when the opportunity
             arises. While I primarily play brass band music in the club, I
-            prefer to play metal in my private life. My current favorite bands
+            prefer to play metal in my private life. Some of my favorite songs
             are
-            <a href="https://www.youtube.com/watch?v=YcccCtqbUpU">LANDMVRKS</a>,
-            <a href="https://www.youtube.com/watch?v=bAp3BPUfj2o"
-              >Make them Suffer</a
+            <a href="https://www.youtube.com/watch?v=YcccCtqbUpU"
+              >Reckoning by LANDMVRKS</a
+            >,
+            <a href="https://www.youtube.com/watch?v=qSeiG6qMhaI"
+              >Second and Sebring by Of Mice & Men</a
             >
             and
-            <a href="https://www.youtube.com/watch?v=zCflVvMhoAU">Eluveitie</a>.
-            Check out some of my favorite songs using the links! On the right
-            side you can check out playing the drums as well.
+            <a href="https://www.youtube.com/watch?v=JglOS8TRFp4"
+              >Pain Remains I by Lorna Shore </a
+            >. If you are not into heavy music I also recommend
+            <a href="https://www.youtube.com/watch?v=KBd7V4RFJoQ"
+              >Euphoria by Viera Blech</a
+            >. Oh by the way, on the right side there is a virtual drumset to
+            check out!
           </p>
         </div>
         <div class="hobby-color2">
@@ -71,11 +84,28 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
       <div class="hobby">
-        <div class="hobby-color3"><h2>Gaming</h2></div>
+        <div class="hobby-color3">
+          <h2>Gaming</h2>
+          <p>
+            My passion for gaming was awakened at a young age. My first console,
+            or rather handheld, was the Gameboy Advance and my first game was
+            Banjo-Kazooie: Grunty's Revenge. Nowadays, I prefer to play on the
+            PC and am a big fan of classic role-playing games (CRPGs), which I
+            can really immerse myself in.
+          </p>
+        </div>
         <div class="hobby-color4"></div>
       </div>
       <div class="hobby">
-        <div class="hobby-color5"><h2>Reading</h2></div>
+        <div class="hobby-color5">
+          <h2>Reading</h2>
+          <p>
+            I've enjoyed reading since I was young. My favorites are fantasy and
+            horror books. However, I recently became interested in sci-fi after
+            I started reading the Foundation trilogy by Isaac Asimov. Incredible
+            books, highly recommend.
+          </p>
+        </div>
         <div class="hobby-color6"></div>
       </div>
       <div class="hobby">
@@ -113,8 +143,6 @@ export class HobbiesComponent implements OnInit {
     'Tomtom.wav',
     'crash-acoustic.wav',
   ];
-
-
 
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
