@@ -9,55 +9,116 @@ import { CommonModule } from '@angular/common';
   imports: [RouterModule, CommonModule],
   template: `
     <body>
-      <section>
-        <div class="introduction">
-          <div class="myName">Hello, my name is Gil Stettler</div>
-          <div class="iAm">
-            I am
-            <span class="rotatingText" [class.fade]="isFading">{{
-              currentWord
-            }}</span>
-          </div>
-          <button class="buttonLearnMore" routerLink="/homepage">
-            Learn More!
-          </button>
-          <div *ngIf="quote && quote.quote" class="quote-section">
-            <p class="quote-text">"{{ quote.quote }}"</p>
-            <p class="quote-author">- {{ quote.author }}</p>
-          </div>
+      <main>
+        <img
+          src="sky.png"
+          alt="paralax-background"
+          data-speedx="0.17"
+          data-speedy="0.23"
+          class="parallax bg-img"
+        />
+        <img
+          src="clouds1.png"
+          alt="clouds1-parallax"
+          data-speedx="0.18"
+          data-speedy="0.2"
+          class="parallax clouds1"
+        />
+        <img
+          src="clouds2.png"
+          alt="clouds2-parallax"
+          data-speedx="0.11"
+          data-speedy="0.17"
+          class="parallax clouds2"
+        />
+        <img
+          src="mountains.png"
+          alt="mountains-parallax"
+          data-speedx="0.08"
+          data-speedy="0.14"
+          class="parallax mountains"
+        />
+        <div class="parallax text" data-speedx="0.05" data-speedy="0.11">
+          <h1>Hey, I am Gil Stettler</h1>
+          <h2>
+            I am <span class="rotatingText" [class.fade]="isFading">{{ currentWord }}</span>
+          </h2>
         </div>
-      </section>
+        <img
+          src="fog.png"
+          alt="fog-parralax"
+          data-speedx="0.05"
+          data-speedy="0.11"
+          class="parallax fog"
+        />
+        <img
+          src="tree1.png"
+          alt="tree1-parallax"
+          data-speedx="0.02"
+          data-speedy="0.08"
+          class="parallax tree1"
+        />
+        <!--<img src="tree2.png" alt="tree2-parallax" class="parallax tree2">-->
+        <img
+          src="tree3.png"
+          alt="tree3-parallax"
+          data-speedx="0.009"
+          data-speedy="0.05"
+          class="parallax tree3"
+        />
+        <div class="acknowledgement"> Drawn by &#64;NekoNadine</div>
+        <button routerLink="/homepage" class="learnmore" data-speedx="0.05" data-speedy="0.11">Learn More</button>
+      </main>
     </body>
   `,
   styleUrl: './startpage.component.scss',
 })
-export class StartpageComponent implements OnInit {
-  title = 'start';
+export class StartpageComponent {
+  constructor() {}
 
-  // Array für "Current Word"
+  // Parallax effect
+  ngOnInit(): void {
+    window.addEventListener('mousemove', this.handleMouseMove.bind(this));
+    this.startRotatingWords();
+  }
+
+  xValue: number = 0;
+  yValue: number = 0;
+  zValue: number = 0;
+
+  handleMouseMove(e: MouseEvent): void {
+    this.xValue = e.clientX - window.innerWidth / 2;
+    this.yValue = e.clientY - window.innerHeight / 2;
+
+    const parallax_el = document.querySelectorAll('.parallax');
+
+    parallax_el.forEach((el) => {
+      let speedx = parseFloat(el.getAttribute('data-speedx') || '0');
+      let speedy = parseFloat(el.getAttribute('data-speedy') || '0');
+      (el as HTMLElement).style.transform = `translateX(calc(-50% + ${
+        this.xValue * speedx
+      }px)) translateY(calc(-50% + ${this.yValue * speedy}px))`;
+    });
+  }
+
+  // Wechselndes Wort
   words: string[] = [
     'a Business IT Student',
     'a Gamer',
     'an Application Manager',
     'a Musician',
   ];
-  // Initiales Wort
+
   currentWord: string = this.words[0];
-  // Wort Index
   wordIndex: number = 0;
-  // Kontrolle von Fading
   isFading: boolean = false;
-  // Start der Funktion bei öffnen der Seite
-  ngOnInit(): void {
-    this.startRotatingsWords();
-    this.fetchQuote();
-  }
-  // Funktion, wodurch das "Current Word" alle 3 Sekunden neu gesetzt wird.
-  startRotatingsWords(): void {
+
+  startRotatingWords(): void {
     setInterval(() => {
       this.fadeOutAndChangeWord();
     }, 3000);
   }
+
   fadeOutAndChangeWord(): void {
     // Fading Trigger
     this.isFading = true;
@@ -67,25 +128,5 @@ export class StartpageComponent implements OnInit {
       this.currentWord = this.words[this.wordIndex];
       this.isFading = false;
     }, 500);
-  }
-
-  quote: { id: number; quote: string; author: string } = {
-    id: 0,
-    quote: '',
-    author: '',
-  };
-
-  constructor(private quoteService: QuoteService) {}
-
-  fetchQuote() {
-    this.quoteService.getRandomQuote().subscribe(
-      (response: { id: number; quote: string; author: string }) => {
-        this.quote = response;
-        console.log('Fetched quote:', response);
-      },
-      (error) => {
-        console.error('Error fetching quote:', error);
-      }
-    );
   }
 }
