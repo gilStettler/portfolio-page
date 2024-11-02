@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
         <h3>Contact Information</h3>
         <p>
           Email:
-          <a href="mailto:your-email@example.com">gilste2000&#64;gmail.com</a>
+          <a href="mailto:gil.stettler@students.bfh.ch">gil.stettler&#64;students.bfh.ch</a>
         </p>
         <a href="https://www.linkedin.com/in/gil-colin-stettler-a1a3012b5/"
           ><img src="linkedin.svg" alt="Link zu meinem LinkedIn Profil"
@@ -20,9 +20,7 @@ import { RouterModule } from '@angular/router';
           ><img src="github.svg" alt="Link zu meinem Github Profil"
         /></a>
       </div>
-      <div class="footer-rights">
-        <p>&copy; 2024 Gil Stettler. All rights reserved.</p>
-      </div>
+
     </footer>
   `,
   styleUrl: './footer.component.scss',

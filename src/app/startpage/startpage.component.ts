@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
           alt="paralax-background"
           data-speedx="0.17"
           data-speedy="0.23"
-          class="parallax bg-img"
+          class=" bg-img"
         />
         <img
           src="clouds1.png"
@@ -66,7 +66,7 @@ import { CommonModule } from '@angular/common';
           data-speedy="0.05"
           class="parallax tree3"
         />
-        <div class="acknowledgement"> Drawn by &#64;NekoNadine</div>
+        <div class="acknowledgement"> Drawn by <a href="https://www.instagram.com/nekonadine/">&#64;NekoNadine</a></div>
         <button routerLink="/homepage" class="learnmore" data-speedx="0.05" data-speedy="0.11">Learn More</button>
       </main>
     </body>

@@ -19,12 +19,29 @@ import { ReactiveFormsModule } from '@angular/forms';
   template: `
     <div class="homecontainer">
       <div class="left-side">
-        <div class="card">
-          <div class="card-picture">
-            <img src="foto_gilstettler.jpg" alt="Porträt von Gil Stettler" />
+        <div class="card" (click)="toggleCard()">
+          <div class="card-inner" [class.flipped]="flipped">
+            <div class="card-front">
+              <div class="card-picture">
+                <img
+                  src="foto_gilstettler.jpg"
+                  alt="Porträt von Gil Stettler"
+                />
+              </div>
+              <h2>Gil Stettler</h2>
+              <h3>Business IT Student & Application Manager</h3>
+              <p>Click for more infos</p>
+            </div>
+            <div class="card-back">
+              <ul>
+                <li><span class="bold">Mail:</span> gil.stettler&#64;students.bfh.ch</li>
+                <li><span class="bold">Date of Birth:</span> 23.06.2000</li>
+                <li><span class="bold">Location:</span> Switzerland</li>
+                <li><span class="bold">Nationality:</span> Swiss</li>
+                <li><span class="bold">Gender:</span> Male</li>
+              </ul>
+            </div>
           </div>
-          <h2>Gil Stettler</h2>
-          <h3>Business IT Student & Application Manager</h3>
         </div>
       </div>
       <div class="right-side">
@@ -49,12 +66,18 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent implements OnInit {
-  quote: { q: string; a: string } = { q: '', a: '' }; 
+  quote: { q: string; a: string } = { q: '', a: '' };
 
   constructor(private quoteService: QuoteService) {}
 
   ngOnInit(): void {
     this.fetchQuote();
+  }
+
+  flipped = false;
+
+  toggleCard() {
+    this.flipped = !this.flipped;
   }
 
   fetchQuote() {

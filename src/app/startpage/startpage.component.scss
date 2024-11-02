@@ -9,7 +9,7 @@ body{
 
 main{
   position: relative;
-  background-color: aqua;
+  background-image: url('/full-bg.png');
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -19,6 +19,10 @@ main{
 
 .rotatingText.fade {
   opacity: 0;
+}
+
+.background{
+  display: none;
 }
 
 .parallax {
@@ -116,6 +120,14 @@ main{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.acknowledgement a{
+  color: #FDE49E;
+  text-decoration: none;
+}
+.acknowledgement a:hover{
+  text-decoration: underline;
+}
+
 .rotatingText {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
@@ -177,17 +189,115 @@ main{
   color: #000;
 }
 
-@media (max-width: 1528px) {
-  .text h2{
+@media (max-width: 1810px) {
+  .tree1{
+    top: 20%
+  }
+  .tree3{
+    top: 20%
+  }
+  h2{
     font-size: 2.5rem;
   }
-  .text h1{
+  h1{
     font-size: 3.5rem;
   }
 }
 
+@media (max-width: 1528px) {
+  .text h2{
+    font-size: 2rem;
+  }
+  .text h1{
+    font-size: 3rem;
+  }
+}
 
+@media (max-width: 1400px){
+  .tree1{
+    top: 40%
+  }
+  .tree3{
+    top: 60%
+  }
+}
 
+@media (max-width: 1150px){
+  .bg-img {
+    top: 45%;
+  }
+  .tree1{
+    top:80%;
+  }
+  h2{
+    font-size: 1rem;
+  }
+  h1{
+    font-size: 2rem;
+  }
+}
 
+@media(max-width: 1024px){
+  .tree1{
+    top: 49%
+  }
+  .tree3{
+    display: none;
+  }
+  .text h2{
+    font-size: 1.5rem;
+  }
+  .text h1{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:880px){
+  .tree1{
+    top: 60%
+  }
+  .bg-img{
+    top: 40%;
+  }
+}
+
+@media (max-width: 800px){
+  .bg-img{
+    top: 30%;
+
+  }
+  .tree1{
+    top: 70%;
+  }
+  .mountains{
+    top: 65%;
+  }
+  .clouds1{
+    top: 42%;
+  }
+}
+@media (max-width: 768px) {
+  .bg-img{
+    display:none;
+  }
+  .clouds1{
+    display:none;
+  }
+  .clouds2{
+    display:none;
+  }
+  .mountains{
+    display:none;
+  }
+  .fog{
+    display:none;
+  }
+  .tree1{
+    display:none;
+  }
+  .tree3{
+    display:none;
+  }
+}
 
 
