@@ -141,8 +141,16 @@
     margin-bottom: 10px;
 }
 
-.right-side h1 span{
+.animated-text{
     animation: color-change 5s infinite;
+}
+
+.right-side h2{
+    font-family: "Cabin", sans-serif;
+    font-size: 30px;
+    margin-bottom: -34px;
+    transform: translateX(-46px);
+    text-align: center;
 }
 
 

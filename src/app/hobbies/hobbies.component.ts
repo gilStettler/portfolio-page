@@ -9,12 +9,14 @@ import {
 import { FooterComponent } from '../footer/footer.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { CatsService } from '../cats.service';
+import { DogsService } from '../dogs.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-hobbies',
   standalone: true,
-  imports: [FooterComponent, NavigationBarComponent, CommonModule],
+  imports: [FooterComponent, NavigationBarComponent, CommonModule, FormsModule],
   template: `
     <app-navigation-bar></app-navigation-bar>
     <div class="container">
@@ -94,10 +96,7 @@ import { CommonModule } from '@angular/common';
             can really immerse myself in.
           </p>
         </div>
-        <div class="hobby-color4"></div>
-      </div>
-      <div class="hobby">
-        <div class="hobby-color5">
+        <div class="hobby-color4">
           <h2>Reading</h2>
           <p>
             I've enjoyed reading since I was young. My favorites are fantasy and
@@ -106,29 +105,88 @@ import { CommonModule } from '@angular/common';
             books, highly recommend.
           </p>
         </div>
-        <div class="hobby-color6"></div>
       </div>
       <div class="hobby">
+        <div class="hobby-color5">
+          <h2>Petting cats</h2>
+          <p>
+            I have three cats. Their names are Yuna, Chili and Arwen. Petting
+            them is nice. Why? Because cats are damn cute... much cuter than
+            dogs. You can generate a random cat or dog image below and try to
+            guess the animal.
+          </p>
+          <button (click)="fetchRandomAnimal()">Generate Cat or Dog</button>
+        </div>
+        <div class="hobby-color6">
+          <div *ngIf="animalUrl" class="guess-container">
+            <input
+              type="text"
+              [(ngModel)]="userGuess"
+              placeholder="Type 'cat or 'dog'"
+              class="guess-input"
+            />
+            <button (click)="submitGuess()" class="submit-button">
+              Submit Guess
+            </button>
+          </div>
+          <button *ngIf="animalUrl" (click)="revealImage()">Reduce Blur</button>
+          <img
+            [src]="animalUrl"
+            [ngStyle]="{ filter: 'blur(' + blurLevel + 'px)' }"
+            alt="Random Animal Image"
+          />
+          <p *ngIf="resultMessage" class="{{ this.resultClass }}">
+            {{ resultMessage }}
+          </p>
+        </div>
+      </div>
+      <!--<div class="hobby">
         <div class="hobby-color7">
           <h2>Petting cats</h2>
           <p>
             I have three cats. Their names are Yuna, Chili and Arwen. Petting
             them is nice. Why? Because cats are damn cute... much cuter than
-            dogs. Not convinced? With the button you can generate cat pictures
-            or gifs.
+            dogs. You can generate a random cat or dog image below and try to
+            guess the animal.
           </p>
-          <button (click)="this.fetchCat()">Generate Cat</button>
+          <button (click)="fetchRandomAnimal()">Generate Cat or Dog</button>
         </div>
-        <div *ngIf="cat && cat.url" class="hobby-color8">
-          <img [src]="cat.url" alt="Cat Image" />
+        <div *ngIf="animalUrl" class="hobby-color8">
+          <div class="guess-container">
+            <input
+              type="text"
+              [(ngModel)]="userGuess"
+              placeholder="Type 'cat or 'dog'"
+              class="guess-input"
+            />
+            <button (click)="submitGuess()" class="submit-button">
+              Submit Guess
+            </button>
+          </div>
+          <button (click)="revealImage()">Reduce Blur</button>
+          <img
+            [src]="animalUrl"
+            [ngStyle]="{ filter: 'blur(' + blurLevel + 'px)' }"
+            alt="Random Animal Image"
+          />
+          <p *ngIf="resultMessage" class="{{ this.resultClass }}">
+            {{ resultMessage }}
+          </p>
         </div>
-      </div>
+      </div>-->
     </div>
     <app-footer></app-footer>
   `,
   styleUrls: ['./hobbies.component.scss'],
 })
 export class HobbiesComponent implements OnInit {
+  ngOnInit(): void {}
+
+  constructor(
+    private catsService: CatsService,
+    private dogsService: DogsService
+  ) {}
+
   // Virtuelles Drumset
   @ViewChild('kickButton') kickButton!: ElementRef;
 
@@ -166,7 +224,6 @@ export class HobbiesComponent implements OnInit {
     } else if (event.key === 'i') {
       this.playSound(8);
     }
-    // Add more keys as needed
   }
 
   playSound(index: number) {
@@ -176,17 +233,28 @@ export class HobbiesComponent implements OnInit {
     audio.play().catch((error) => console.error('Error playing audio:', error));
   }
 
-  // Cat API
-  cat: { id: string; url: string; width: number; height: number } = {
-    id: '',
-    url: '',
-    width: 0,
-    height: 0,
-  };
+  // Guess Animals Game
+  animalUrl: string | null = null;
+  animalType: 'cat' | 'dog' | null = null;
+  blurLevel: number = 40;
+  revealClicks: number = 0;
+  userGuess: string = '';
+  resultMessage: string = '';
+  resultClass: string | null = null;
 
-  ngOnInit(): void {}
+  fetchRandomAnimal() {
+    const isCat = Math.random() < 0.5;
 
-  constructor(private catsService: CatsService) {}
+    if (isCat) {
+      this.fetchCat();
+      this.animalType = 'cat';
+    } else {
+      this.fetchDog();
+      this.animalType = 'dog';
+    }
+    this.blurLevel = 40;
+    this.revealClicks = 0;
+  }
 
   fetchCat() {
     this.catsService.getCats().subscribe({
@@ -198,12 +266,49 @@ export class HobbiesComponent implements OnInit {
           height: number;
         }>
       ) => {
-        this.cat = response[0];
+        this.animalUrl = response[0].url; // Set the cat image URL
         console.log('Fetched cat:', response);
       },
       error: (error) => {
         console.error('Failed to fetch cat:', error);
       },
     });
+  }
+
+  fetchDog() {
+    this.dogsService.getDogs().subscribe({
+      next: (
+        response: Array<{
+          id: string;
+          url: string;
+          width: number;
+          height: number;
+        }>
+      ) => {
+        this.animalUrl = response[0].url; // Set the dog image URL
+        console.log('Fetched dog:', response);
+      },
+      error: (error) => {
+        console.error('Failed to fetch dog:', error);
+      },
+    });
+  }
+
+  revealImage() {
+    if (this.revealClicks < 3) {
+      this.revealClicks++;
+      this.blurLevel -= 10;
+    }
+  }
+
+  submitGuess() {
+    if (this.userGuess.toLowerCase() === this.animalType) {
+      this.resultMessage = 'Correct, it is a ' + this.animalType + '!';
+      this.resultClass = 'result-correct';
+    } else {
+      this.resultMessage = 'Wrong, it is a ' + this.animalType + '!';
+      this.resultClass = 'result-wrong';
+    }
+    this.blurLevel = 0;
   }
 }

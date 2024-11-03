@@ -34,7 +34,10 @@ import { ReactiveFormsModule } from '@angular/forms';
             </div>
             <div class="card-back">
               <ul>
-                <li><span class="bold">Mail:</span> gil.stettler&#64;students.bfh.ch</li>
+                <li>
+                  <span class="bold">Mail:</span>
+                  gil.stettler&#64;students.bfh.ch
+                </li>
                 <li><span class="bold">Date of Birth:</span> 23.06.2000</li>
                 <li><span class="bold">Location:</span> Switzerland</li>
                 <li><span class="bold">Nationality:</span> Swiss</li>
@@ -45,16 +48,19 @@ import { ReactiveFormsModule } from '@angular/forms';
         </div>
       </div>
       <div class="right-side">
-        <h1><span>HELLO</span> there!</h1>
+        <h2>
+          I'm <span class="animated-text">G</span>il
+          <span class="animated-text">S</span>tettler
+        </h2>
+        <h1>HELLO there!</h1>
         <div class="about-paragraph">
           <p>
-            I, Gil Stettler, was born on 23 June 2000. The digital
-            transformation offers us countless opportunities to better connect
-            the world and create an inclusive, modern and sustainable tomorrow.
-            I want to use my skills to support this change in a qualitative way.
-            That's why I'm studying business informatics alongside my job as
-            deputy application manager. I hope to use my skills to drive forward
-            exciting and innovative projects.
+            The digital transformation offers us countless opportunities to
+            better connect the world and create an inclusive, modern and
+            sustainable tomorrow. I want to use my skills to support this change
+            in a qualitative way. That's why I'm studying business informatics
+            alongside my job as deputy application manager. I hope to use my
+            skills to drive forward exciting and innovative projects.
           </p>
         </div>
       </div>
@@ -63,7 +69,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     <app-navigation-bar></app-navigation-bar>
     <app-footer></app-footer>
   `,
-  styleUrl: './homepage.component.scss',
+  styleUrls: [
+    './homepage.component.scss',
+  ],
 })
 export class HomepageComponent implements OnInit {
   quote: { q: string; a: string } = { q: '', a: '' };
