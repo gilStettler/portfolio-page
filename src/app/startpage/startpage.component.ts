@@ -58,7 +58,6 @@ import { CommonModule } from '@angular/common';
           data-speedy="0.08"
           class="parallax tree1"
         />
-        <!--<img src="tree2.png" alt="tree2-parallax" class="parallax tree2">-->
         <img
           src="tree3.png"
           alt="tree3-parallax"
@@ -120,9 +119,7 @@ export class StartpageComponent {
   }
 
   fadeOutAndChangeWord(): void {
-    // Fading Trigger
     this.isFading = true;
-    // Wait for fade out to complete (500ms) before changing the word
     setTimeout(() => {
       this.wordIndex = (this.wordIndex + 1) % this.words.length;
       this.currentWord = this.words[this.wordIndex];

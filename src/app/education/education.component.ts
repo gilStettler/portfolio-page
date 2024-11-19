@@ -42,7 +42,7 @@ export class EducationComponent {
     },
     {
       job: 'Bern Business School',
-      period: 'August 2016 - July 2019',
+      period: 'August 2016 - July 2020',
       description:
         'I completed a four-year commercial apprenticeship with a vocational baccalaureate at the business school in Bern.',
       imgSrc: 'blop2.svg',
@@ -51,16 +51,16 @@ export class EducationComponent {
     },
     {
       job: 'Secondary School Signau',
-      period: 'August 2019 - July 2020',
+      period: 'August 2014 - July 2016',
       description:
-        'I attended secondary school in Signau from the 6th to the 9th grade.',
+        'I attended secondary school in Signau from the 7th to the 9th grade.',
       imgSrc: 'blop3.svg',
       imgAlt: 'Aufzählungszeichen',
       isVisible: false,
     },
     {
       job: 'Primary School Schüpbach',
-      period: 'August 2019 - July 2020',
+      period: 'August 2007 - July 2014',
       description:
         'I spent my primary school years at Schüpbach school. I grew up in Schüpbach and still live there at the moment.',
       imgSrc: 'blop3.svg',

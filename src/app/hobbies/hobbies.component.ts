@@ -135,45 +135,11 @@ import { FormsModule } from '@angular/forms';
             [ngStyle]="{ filter: 'blur(' + blurLevel + 'px)' }"
             alt="Random Animal Image"
           />
-          <p *ngIf="resultMessage" class="{{ this.resultClass }}">
+          <p *ngIf="showResult" class="{{ this.resultClass }}">
             {{ resultMessage }}
           </p>
         </div>
       </div>
-      <!--<div class="hobby">
-        <div class="hobby-color7">
-          <h2>Petting cats</h2>
-          <p>
-            I have three cats. Their names are Yuna, Chili and Arwen. Petting
-            them is nice. Why? Because cats are damn cute... much cuter than
-            dogs. You can generate a random cat or dog image below and try to
-            guess the animal.
-          </p>
-          <button (click)="fetchRandomAnimal()">Generate Cat or Dog</button>
-        </div>
-        <div *ngIf="animalUrl" class="hobby-color8">
-          <div class="guess-container">
-            <input
-              type="text"
-              [(ngModel)]="userGuess"
-              placeholder="Type 'cat or 'dog'"
-              class="guess-input"
-            />
-            <button (click)="submitGuess()" class="submit-button">
-              Submit Guess
-            </button>
-          </div>
-          <button (click)="revealImage()">Reduce Blur</button>
-          <img
-            [src]="animalUrl"
-            [ngStyle]="{ filter: 'blur(' + blurLevel + 'px)' }"
-            alt="Random Animal Image"
-          />
-          <p *ngIf="resultMessage" class="{{ this.resultClass }}">
-            {{ resultMessage }}
-          </p>
-        </div>
-      </div>-->
     </div>
     <app-footer></app-footer>
   `,
@@ -241,6 +207,7 @@ export class HobbiesComponent implements OnInit {
   userGuess: string = '';
   resultMessage: string = '';
   resultClass: string | null = null;
+  showResult: boolean = false;
 
   fetchRandomAnimal() {
     const isCat = Math.random() < 0.5;
@@ -254,6 +221,7 @@ export class HobbiesComponent implements OnInit {
     }
     this.blurLevel = 40;
     this.revealClicks = 0;
+    this.showResult = false;
   }
 
   fetchCat() {
@@ -266,7 +234,7 @@ export class HobbiesComponent implements OnInit {
           height: number;
         }>
       ) => {
-        this.animalUrl = response[0].url; // Set the cat image URL
+        this.animalUrl = response[0].url; 
         console.log('Fetched cat:', response);
       },
       error: (error) => {
@@ -285,7 +253,7 @@ export class HobbiesComponent implements OnInit {
           height: number;
         }>
       ) => {
-        this.animalUrl = response[0].url; // Set the dog image URL
+        this.animalUrl = response[0].url; 
         console.log('Fetched dog:', response);
       },
       error: (error) => {
@@ -310,5 +278,6 @@ export class HobbiesComponent implements OnInit {
       this.resultClass = 'result-wrong';
     }
     this.blurLevel = 0;
+    this.showResult = true;
   }
 }

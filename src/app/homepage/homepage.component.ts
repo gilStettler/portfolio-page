@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TileComponent } from '../tile/tile.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { QuoteService } from '../quote.service';
 import { FooterComponent } from '../footer/footer.component';
@@ -10,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   selector: 'app-homepage',
   standalone: true,
   imports: [
-    TileComponent,
     CommonModule,
     NavigationBarComponent,
     FooterComponent,
@@ -69,9 +67,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     <app-navigation-bar></app-navigation-bar>
     <app-footer></app-footer>
   `,
-  styleUrls: [
-    './homepage.component.scss',
-  ],
+  styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
   quote: { q: string; a: string } = { q: '', a: '' };

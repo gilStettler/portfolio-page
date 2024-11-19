@@ -142,9 +142,11 @@ export class SkillsComponent {
       link: 'https://www.python.org/',
     },
     {
-      name: 'MS-Office',
+      name: 'M365',
       level: null,
       keywords: [
+        'm365',
+        'microsoft 365',
         'ms-office',
         'microsoft office',
         'microsoft',
