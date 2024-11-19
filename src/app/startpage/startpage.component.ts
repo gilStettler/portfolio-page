@@ -66,7 +66,7 @@ import { CommonModule } from '@angular/common';
           class="parallax tree3"
         />
         <div class="acknowledgement"> Drawn by <a href="https://www.instagram.com/nekonadine/">&#64;NekoNadine</a></div>
-        <button routerLink="/homepage" class="learnmore" data-speedx="0.05" data-speedy="0.11">Learn More</button>
+        <button [routerLink]="'/homepage'" class="learnmore" data-speedx="0.05" data-speedy="0.11">Learn More</button>
       </main>
     </body>
   `,

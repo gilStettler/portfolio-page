@@ -11,11 +11,11 @@ import { Router, RouterModule } from '@angular/router';
       <button class="hamburger" (click)="toggleMenu()">&#9776;</button>
       <div class="navtext" [ngClass]="{ open: menuOpen }">
         <ul>
-          <li routerLink="/homepage">Home</li>
-          <li routerLink="/experiences">Experiences</li>
-          <li routerLink="/education">Education</li>
-          <li routerLink="/skills">Skills</li>
-          <li routerLink="/hobbies">Hobbies</li>
+          <li [routerLink]="'/homepage'">Home</li>
+          <li [routerLink]="'/experiences'">Experiences</li>
+          <li [routerLink]="'/education'">Education</li>
+          <li [routerLink]="'/skills'">Skills</li>
+          <li [routerLink]="'/hobbies'">Hobbies</li>
         </ul>
       </div>
     </nav>
