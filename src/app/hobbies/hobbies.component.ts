@@ -234,7 +234,7 @@ export class HobbiesComponent implements OnInit {
           height: number;
         }>
       ) => {
-        this.animalUrl = response[0].url; 
+        this.animalUrl = response[0].url;
         console.log('Fetched cat:', response);
       },
       error: (error) => {
@@ -253,7 +253,7 @@ export class HobbiesComponent implements OnInit {
           height: number;
         }>
       ) => {
-        this.animalUrl = response[0].url; 
+        this.animalUrl = response[0].url;
         console.log('Fetched dog:', response);
       },
       error: (error) => {

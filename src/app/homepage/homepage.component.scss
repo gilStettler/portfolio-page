@@ -1,5 +1,5 @@
 .homecontainer {
-    height: 100%;
+    height: auto;
     margin: 80px 20px 20px 20px;
     display: flex;
     justify-content: space-between;
@@ -180,6 +180,9 @@
     .right-side{
         padding-left: 0;
 
+    }
+    .right-side h1{
+        font-size: 45px
     }
 
     .right-side p{
